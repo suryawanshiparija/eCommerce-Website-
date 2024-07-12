@@ -57,9 +57,9 @@ MYGS is a comprehensive e-commerce website developed as a final year project for
    - Choose `Existing Projects into Workspace` and select the cloned repository.
    
 3. **Configure the Database:**
-   - Create a MySQL database named `mygs`.
-   - Import the SQL file provided in the `db` folder to set up the necessary tables and data.
-   - Update the database connection details in the project configuration files (`DBConnection.java`).
+   - Create a MySQL database.
+   - Import the SQL file provided in the folder to set up the necessary tables and data.
+   - Update the database connection details in the project configuration files.
 
 4. **Deploy the Project:**
    - Right-click on the project in Eclipse.
