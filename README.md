@@ -67,7 +67,6 @@ MYGS is a comprehensive e-commerce website developed as a final year project for
    - Choose Apache Tomcat as the server.
 
 
-
 ## Contribution
 Feel free to fork this repository and contribute by submitting pull requests. For major changes, please open an issue to discuss what you would like to change.
 
