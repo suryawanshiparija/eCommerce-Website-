@@ -1,0 +1,313 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.5.47
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema ecommerce
+--
+
+CREATE DATABASE IF NOT EXISTS ecommerce;
+USE ecommerce;
+
+--
+-- Definition of table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE `category` (
+  `category_id` int(11) NOT NULL AUTO_INCREMENT,
+  `main_category` varchar(100) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+INSERT INTO `category` (`category_id`,`main_category`,`status`) VALUES 
+ (1,'Home Appliances','Active'),
+ (2,'Electronics','Active'),
+ (3,'Lifestyle','Active'),
+ (4,'Clothes','Active'),
+ (5,'Brands','Active'),
+ (6,'Promo','Active'),
+ (7,'Demo','Inactive'),
+ (8,'Stationary','Active');
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+
+
+--
+-- Definition of table `enquiry_details`
+--
+
+DROP TABLE IF EXISTS `enquiry_details`;
+CREATE TABLE `enquiry_details` (
+  `enquiry_id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) DEFAULT NULL,
+  `contact` varchar(100) DEFAULT NULL,
+  `date` varchar(100) DEFAULT NULL,
+  `time` varchar(100) DEFAULT NULL,
+  `subject` varchar(405) DEFAULT NULL,
+  `message` varchar(4500) DEFAULT NULL,
+  PRIMARY KEY (`enquiry_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `enquiry_details`
+--
+
+/*!40000 ALTER TABLE `enquiry_details` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enquiry_details` ENABLE KEYS */;
+
+
+--
+-- Definition of table `feedback`
+--
+
+DROP TABLE IF EXISTS `feedback`;
+CREATE TABLE `feedback` (
+  `feedbackId` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(450) DEFAULT NULL,
+  `mobile` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `subject` varchar(45) DEFAULT NULL,
+  `message` varchar(10000) DEFAULT NULL,
+  PRIMARY KEY (`feedbackId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `feedback`
+--
+
+/*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
+/*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
+
+
+--
+-- Definition of table `orderconfirm`
+--
+
+DROP TABLE IF EXISTS `orderconfirm`;
+CREATE TABLE `orderconfirm` (
+  `orderId` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `userId` varchar(45) DEFAULT NULL,
+  `productId` varchar(45) DEFAULT NULL,
+  `productName` varchar(45) DEFAULT NULL,
+  `price` varchar(45) DEFAULT NULL,
+  `orderDate` varchar(45) DEFAULT NULL,
+  `model` varchar(450) DEFAULT NULL,
+  `brand` varchar(450) DEFAULT NULL,
+  `paymentStatus` varchar(45) DEFAULT NULL,
+  `orderStatus` varchar(45) DEFAULT NULL,
+  `orderCancel` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`orderId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orderconfirm`
+--
+
+/*!40000 ALTER TABLE `orderconfirm` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orderconfirm` ENABLE KEYS */;
+
+
+--
+-- Definition of table `product_details`
+--
+
+DROP TABLE IF EXISTS `product_details`;
+CREATE TABLE `product_details` (
+  `product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(200) DEFAULT NULL,
+  `subcategory_name` varchar(200) DEFAULT NULL,
+  `product_name` varchar(300) DEFAULT NULL,
+  `brand_name` varchar(300) DEFAULT NULL,
+  `product_mrp` varchar(100) DEFAULT NULL,
+  `model_no` varchar(200) DEFAULT NULL,
+  `order_quantity` varchar(200) DEFAULT NULL,
+  `product_details` varchar(1000) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product_details`
+--
+
+/*!40000 ALTER TABLE `product_details` DISABLE KEYS */;
+INSERT INTO `product_details` (`product_id`,`category_name`,`subcategory_name`,`product_name`,`brand_name`,`product_mrp`,`model_no`,`order_quantity`,`product_details`,`status`) VALUES 
+ (1,'1','1','Mixer','Bajaj 1','2000','BB90A00','300','The Bajaj Mixer comes equipped with a powerful 500 W motor that helps you grind and blend both wet and dry ingredients. This mixer grinder comes with three impact-resistant jars that have sharp stainless steel blades. These blades cut through the toughest of ingredients for you to make delicacies that would leave your loved ones wanting for more. The jars also come with anti-spill lids that ensure you get a clean and neat mix without any spillage.','Active'),
+ (2,'1','2','Fridge','Whirpool','19999','WP16739','250','Direct-cool refrigerator with modern curved design: 200 L with 4S Energy rating\r\nModern door design with metallic handle, curved edges and Floral pattern finish to compliment your house\r\nIntelliSense Inverter Technology, with energy efficient inverter compressors\r\nNo. 1 in Ice Making with Insulated Capillary Technology & Laminar Airflow for efficient Cooling\r\nPreserves milk for upto 12 hours (in case of power cuts)\r\nUpto 7 days of Garden freshness with Honeycomb lock in that maintains optimum moisture in your vegetables\r\nShelf type: Spill proof toughened glass','Active'),
+ (3,'2','3','Rocz','Noise','3999','noise1z','200','The Bajaj Mixer comes equipped with a powerful 500 W motor that helps you grind and blend both wet and dry ingredients. This mixer grinder comes with three impact-resistant jars that have sharp stainless steel blades. These blades cut through the toughest of ingredients for you to make delicacies that would','Active'),
+ (4,'2','4','Digital Watch','Roadster','2999','rod123','12','IPX5 Sweat and Water Resistance\r\nTap into the moment, push it in the gym or travel through the storm, the Rockerz 245V2 will keep itself alive with IPX5 Sweat and Water Resistance.','Active'),
+ (5,'2','15','Echo','Amazon','1890','echo11','11','Wireless Â· Portable Â· Bluetooth Â· AUX\r\nIt\'s time to enjoy a seamless playback experience courtesy boAt Stone 350 T 10W portable wireless speaker. The speaker comes equipped with 4.97 cm (1.96\\) dynamic drivers for an immersive stereo experience. It supports instant wireless connectivity with BT v5.0. The speaker pumps','Active'),
+ (7,'2','3','Buds','Roadster TWB','999','ROD12R','1','Wireless Â· Portable Â· Bluetooth Â· AUX\r\nIt\'s time to enjoy a seamless playback experience courtesy boAt Stone 350 T 10W portable wireless speaker. The speaker comes equipped with 4.97 cm (1.96\\) dynamic drivers for an immersive stereo experience. It supports instant wireless connectivity with BT v5.0. The speaker pumps','Active'),
+ (8,'3','6','American tourister','American','7888','american45','1','These bags are made from polyester/nylon mixed material - water repellent - Robust enough to carry all your belongings\r\n40 Wheels for easy carrying, 5 compartments (1 Main and 4 outer) , Width 1 inch, Height : 13 inch, Length -21 inch\r\nLong adjustable shoulder strap - 270 Degree zip around - two sided wheels are helpful while traveling\r\nIdeal as laundry bags - Folds flat for easy storage - Great in place of a suitcase - Excellent size for storing winter or summer clothes - Can be used while going to vacation','Active'),
+ (9,'3','6','Women Bag','London','5999','ln0','1','These bags are made from polyester/nylon mixed material - water repellent - Robust enough to carry all your belongings\r\n40 Wheels for easy carrying, 5 compartments (1 Main and 4 outer) , Width 1 inch, Height : 13 inch, Length -21 inch\r\nLong adjustable shoulder strap - 270 Degree zip around - two sided wheels are helpful while traveling\r\nIdeal as laundry bags - Folds flat for easy storage - Great in place of a suitcase - Excellent size for storing winter or summer clothes - Can be used while going to vacation','Active'),
+ (10,'3','16','Heels','Guccie','4999','gucci123','1','The Gucci collection is the pinnacle of Italian craftsmanship and attention to detail as seen in these brown leather Crawford sandals. Featuring an ankle strap with a side buckle fastening, a high stiletto heel, an open toe and interwoven straps.','Active'),
+ (11,'3','17','Shoes','Puma','2000','puma1','1','Wipe with a clean, dry cloth when needed\r\nLace Fastening\r\nRegular Fit\r\n3-month warranty against manufacturing defects\r\nFaux leather upper\r\nRubber sole\r\nProduct Code: 450114776001','Inactive'),
+ (12,'1','18','Smart tv','Sony','75999','LG2A','1','Resolution: HD Ready (1366x768) | Refresh Rate: 60 Hertz\r\nConnectivity: 2 HDMI Ports to connect set top box, Blu Ray players, gaming console | 2 USB Ports to connect hard drives and other USB devices | 1 VGA Slot to connect your Laptop/PC | 1 Headphone Jack | 2 AV Input Slot | 1 RF Slot\r\nSound: 16 Watts Output\r\nDisplay: A+ Grade Panel with One Year Zero Dot Assurance | 178 Degree Wide Viewing Angle\r\nWarranty: 1 Year Standard Manufacturer Warranty From Croma From Date Of Purchase','Active'),
+ (13,'2','19','Smartphones','Iphone','120000','iphone120','1','Liquid Retina HD display\r\n15.5 cm / 6.1&#8209;inch (diagonal) all-screen LCD Multi-Touch display with IPS technology\r\n1792x828&#8209;pixel resolution at 326 ppi\r\n1400:1 contrast ratio (typical)\r\nTrue Tone display\r\nWide colour display (P3)\r\nHaptic Touch\r\n625 nits max brightness (typical)\r\nFingerprint&#8209;resistant oleophobic coating\r\nSupport for display of multiple languages and characters simultaneously','Active'),
+ (14,'7','20','Dewmooo','Demoo','100','1000','20','Its a Test Mode','Inactive');
+/*!40000 ALTER TABLE `product_details` ENABLE KEYS */;
+
+
+--
+-- Definition of table `product_images`
+--
+
+DROP TABLE IF EXISTS `product_images`;
+CREATE TABLE `product_images` (
+  `productimage_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) DEFAULT NULL,
+  `image1` varchar(1000) DEFAULT NULL,
+  `image2` varchar(1000) DEFAULT NULL,
+  `image3` varchar(1000) DEFAULT NULL,
+  `image4` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`productimage_id`),
+  KEY `product_id` (`product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `product_images`
+--
+
+/*!40000 ALTER TABLE `product_images` DISABLE KEYS */;
+INSERT INTO `product_images` (`productimage_id`,`product_id`,`image1`,`image2`,`image3`,`image4`) VALUES 
+ (1,1,'p_images/1/mixer2.jpg','p_images/1/mixer1.jpg','p_images/1/mixer3.jpg','p_images/1/mixer4.jpg'),
+ (2,2,'p_images/2/fridge1.jpg','p_images/2/fridge 2.jpg','p_images/2/fridge3.jpg','p_images/2/mixer4.jpg'),
+ (3,3,'p_images/3/bt5.jfif','p_images/3/bt3.jfif','p_images/3/bt3.jfif','p_images/3/bt4.jfif'),
+ (4,4,'p_images/4/watch1.png','p_images/4/watch2.png','p_images/4/watch3.jfif','p_images/4/watch6.jfif'),
+ (5,5,'p_images/5/speaker5.jfif','p_images/5/speaker6.jfif','p_images/5/speaker3.jfif','p_images/5/speaker4.jfif'),
+ (6,7,'p_images/7/er1.jfif','p_images/7/er3.jfif','p_images/7/er2.jfif','p_images/7/er4.jfif'),
+ (7,8,'p_images/8/bag6.jfif','p_images/8/bag5.jfif','p_images/8/bag7.jfif','p_images/8/bag8.jfif'),
+ (8,9,'p_images/9/bag1.jfif','p_images/9/bag2.jfif','p_images/9/bag3.jfif','p_images/9/4.jfif'),
+ (9,10,'p_images/10/heel4.jfif','p_images/10/heel5.jfif','p_images/10/heel2.jfif','p_images/10/heel6.jfif'),
+ (10,11,'p_images/11/shoes1.jfif','p_images/11/shoes2.jfif','p_images/11/shoes5.jfif','p_images/11/shoes4.jfif'),
+ (11,12,'p_images/12/tv.jpg','p_images/12/tv2.jpg','p_images/12/tv3.jpg','p_images/12/tv4.jpg'),
+ (12,13,'p_images/13/m4.jfif','p_images/13/m5.jfif','p_images/13/m2.jfif','p_images/13/m3.jfif'),
+ (13,14,'p_images/14/friends.jpg','p_images/14/friends.jpg','p_images/14/friends.jpg','p_images/14/friends.jpg');
+/*!40000 ALTER TABLE `product_images` ENABLE KEYS */;
+
+
+--
+-- Definition of table `products`
+--
+
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE `products` (
+  `product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_name` varchar(100) DEFAULT NULL,
+  `sub_category` varchar(100) DEFAULT NULL,
+  `product_name` varchar(100) DEFAULT NULL,
+  `brand_name` varchar(100) DEFAULT NULL,
+  `product_image` varchar(100) DEFAULT NULL,
+  `model_no` varchar(100) DEFAULT NULL,
+  `mrp_price` varchar(100) DEFAULT NULL,
+  `order_quantity` varchar(100) DEFAULT NULL,
+  `product_details` varchar(1000) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `products`
+--
+
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+
+
+--
+-- Definition of table `register`
+--
+
+DROP TABLE IF EXISTS `register`;
+CREATE TABLE `register` (
+  `registrationId` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(105) DEFAULT NULL,
+  `mobile` varchar(45) DEFAULT NULL,
+  `city` varchar(45) DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `gender` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`registrationId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `register`
+--
+
+/*!40000 ALTER TABLE `register` DISABLE KEYS */;
+/*!40000 ALTER TABLE `register` ENABLE KEYS */;
+
+
+--
+-- Definition of table `subcategory`
+--
+
+DROP TABLE IF EXISTS `subcategory`;
+CREATE TABLE `subcategory` (
+  `subcategory_id` int(11) NOT NULL AUTO_INCREMENT,
+  `maincategory_id` varchar(45) DEFAULT NULL,
+  `subcategory_name` varchar(100) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`subcategory_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `subcategory`
+--
+
+/*!40000 ALTER TABLE `subcategory` DISABLE KEYS */;
+INSERT INTO `subcategory` (`subcategory_id`,`maincategory_id`,`subcategory_name`,`status`) VALUES 
+ (1,'1','Mixer','Active'),
+ (2,'1','Fridge','Active'),
+ (3,'2','Bluetooth Devices','Active'),
+ (4,'2','Smart Watch','Active'),
+ (5,'2','Watch','Active'),
+ (6,'3','Backpacks','Active'),
+ (7,'3','Travelling Bags','Active'),
+ (8,'3','Caps','Active'),
+ (9,'5','Boat','Active'),
+ (10,'5','Noise','Active'),
+ (11,'5','American Tourister','Active'),
+ (12,'5','Whirlpool','Active'),
+ (13,'6','Keychain','Active'),
+ (14,'6','USB Drive','Active'),
+ (15,'2','Bluetooth Speaker','Active'),
+ (16,'3','Heels','Active'),
+ (17,'3','Shoes','Active'),
+ (18,'1','TV','Active'),
+ (19,'2','Mobile','Active'),
+ (20,'7','Test','Active'),
+ (21,'7','tester','Active'),
+ (22,'8','Books','Active'),
+ (23,'8','Pen','Active');
+/*!40000 ALTER TABLE `subcategory` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
