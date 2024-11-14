@@ -72,7 +72,7 @@
 								<p><a href="https://api.whatsapp.com/send?phone=7820805887&amp;text=Hello" target="_blank"><i class="fas fa-phone"></i> <i class="fab fa-whatsapp"></i> (+91) 7820805887 </a></p>
 								<p><a href="mailto:gargi312003@gmail.com" target="_blank"><i class="fa fa-envelope"></i> gargi312003@gmail.com</a></p>
 								<p>&nbsp;</p>
-								<p>Seller Support Email: gargi@312003@gmail.com</p>
+								<p>Seller Support Email: Sparija@gmail.com</p>
 							</address>
 							<div class="social-networks">
 								<h4 style="float: left; color: #FE980F;" >Social Networking</h4><br><br>
